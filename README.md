@@ -78,11 +78,23 @@ Certifique-se de que o Docker está rodando.
 
 ```
 ├── src
-│   ├── main
-│   │   ├── controller
-│   │   ├── service
-│   │   ├── repository
-│   │   └── dto
+│ ├── main
+│ │ ├── java
+│ │ │ └── com.ambev.order
+│ │ │ ├── OrderServiceApplication
+│ │ │ ├── application.service
+│ │ │ │ └── OrderServiceImpl
+│ │ │ ├── domain
+│ │ │ └── infrastructure
+│ │ │ ├── config
+│ │ │ ├── controller
+│ │ │ │ └── OrderController
+│ │ │ ├── dto
+│ │ │ ├── exception
+│ │ │ ├── messaging
+│ │ │ └── persistence
+│ └── resources
+└── test
 ├── Dockerfile
 ├── docker-compose.yml
 ├── grafana/
