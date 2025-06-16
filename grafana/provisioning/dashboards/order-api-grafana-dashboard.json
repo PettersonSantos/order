@@ -1,0 +1,99 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "type": "dashboard",
+        "name": "Annotations & Alerts",
+        "enabled": true,
+        "hide": false
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1657903055047,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        },
+        "timeRegions": [],
+        "displayMode": "lines"
+      },
+      "targets": [
+        {
+          "expr": "http_server_requests_seconds_count{uri!=\"/actuator/prometheus\"}",
+          "interval": "",
+          "legendFormat": "{{uri}} - count",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(http_server_requests_seconds_sum{uri!=\"/actuator/prometheus\"}[1m]) / rate(http_server_requests_seconds_count{uri!=\"/actuator/prometheus\"}[1m])",
+          "interval": "",
+          "legendFormat": "{{uri}} - avg duration (s)",
+          "refId": "B"
+        }
+      ],
+      "title": "API Requests & Response Time",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [
+    "performance",
+    "api"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Order API Dashboard",
+  "uid": "order-api-metrics",
+  "version": 1
+}
